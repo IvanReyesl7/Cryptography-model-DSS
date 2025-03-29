@@ -16,13 +16,14 @@ n = 5
 # Scrambled Funcion
 
 def fs(x,y):
-    return hashlib.sha256((str(x) + str(semilla).encode()).hexdigest())
+    combinado = (str(x) + str(y)).encode()
+    return hashlib.sha256(combinado).hexdigest()
 
 # generation funcion 
 
 def fg(x,y):
+    #prueba git
     return
-
 # mutation function
 
 def fm(x,y):
@@ -31,10 +32,10 @@ def fm(x,y):
 def generar_tabla_claves(X, Y, Semilla, num_llaves):
     tabla_llaves = []
     for _ in range(num_llaves):
-        P0 = fs(X, S)       
+        P0 = fs(X, Semilla)       
         clave = fg(P0, Y)   
         tabla_llaves.append(clave)
-        S = fm(Semilla, Y)
+        Semilla = fm(Semilla, Y)
     return tabla_llaves
 
 generar_tabla_claves(x, y, semilla, n)
