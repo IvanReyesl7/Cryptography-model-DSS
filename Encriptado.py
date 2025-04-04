@@ -11,7 +11,7 @@ semilla = random.getrandbits(32)
 
 # Numero de llaves a crear
 
-n = 5
+n = 10
 
 # Scrambled Funcion
 
@@ -42,6 +42,9 @@ def generar_tabla_claves(X, Y, Semilla, num_llaves):
 tabla_claves = generar_tabla_claves(x, y, semilla, n)
 PSN = 4
 
+print("=== Tabla de llaves ===")
+for i, clave in enumerate(tabla_claves):
+    print(f"={hex(clave)}=")
 #Funcion para encriptar mensaje
 
 def encriptar(mensaje: str, tabla_claves: list, PSN: int) -> bytes:
@@ -100,7 +103,7 @@ def abrir_encriptado():
 
 # Configuración de la ventana
 ventana = tk.Tk()
-ventana.title("Encriptar y desemcriptar texto")
+ventana.title("Encriptar y desencriptar texto")
 ventana.geometry("400x300")
 
 # tamaño de la ventana 
